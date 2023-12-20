@@ -1,3 +1,4 @@
+import subprocess
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -5,6 +6,12 @@ from django.shortcuts import render, redirect
 from .form import *
 from django.contrib.auth import logout
 
+def streamlit_view(request):
+    # Run Streamlit as a subprocess
+    subprocess.Popen(["streamlit", "run", "D:\xampp\htdocs\youtube_django_blog_application-main\streamlit_app.py"])
+
+    # Your view logic here
+    return render(request, 'home.html')
 
 def logout_view(request):
     logout(request)
